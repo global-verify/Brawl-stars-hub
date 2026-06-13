@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brawl Stars - Epic Player Hub</title>
+    <title>Brawl Stars - Exclusive Rewards Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Nougat&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,191 +17,133 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden;
         }
         .container {
             background: rgba(20, 30, 50, 0.95);
             border: 4px solid #fca311;
-            border-radius: 20px;
-            padding: 30px;
+            border-radius: 25px;
+            padding: 30px 20px;
             width: 90%;
-            max-width: 400px;
+            max-width: 420px;
             text-align: center;
-            box-shadow: 0 0 25px rgba(252, 163, 17, 0.5);
+            box-shadow: 0 0 30px rgba(252, 163, 17, 0.6);
+            position: relative;
+        }
+        .live-badge {
+            background: #ff2a2a;
+            color: white;
+            padding: 5px 12px;
+            font-size: 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: blink 1.2s infinite;
+            box-shadow: 0 0 10px rgba(255, 42, 42, 0.5);
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
         h1 {
             color: #fca311;
             text-shadow: 3px 3px 0 #000;
-            font-size: 36px;
-            margin-bottom: 5px;
+            font-size: 40px;
+            margin: 0 0 10px 0;
             letter-spacing: 2px;
         }
         p.subtitle {
             color: #e0e1dd;
-            margin-bottom: 25px;
-            font-size: 14px;
-        }
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .input-group label {
-            color: #fca311;
+            margin-bottom: 30px;
             font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            line-height: 1.4;
         }
-        input, select {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            border: 3px solid #1b263b;
-            border-radius: 10px;
-            background: #e0e1dd;
-            color: #0d1b2a;
-            font-size: 16px;
-            box-sizing: border-box;
-            font-family: 'Nougat', sans-serif;
-        }
-        input:focus, select:focus {
-            outline: none;
-            border-color: #fca311;
-        }
-        .gems-grid {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-        .gem-box {
-            width: 30%;
-            background: #1b263b;
+        .reward-card {
+            background: linear-gradient(135deg, #1b263b 0%, #141e32 100%);
             border: 2px solid #fca311;
-            border-radius: 8px;
-            padding: 10px 0;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 18px;
-            text-align: center;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
         }
-        .gem-box:hover, .gem-box.active {
-            background: #fca311;
-            color: #0d1b2a;
-            transform: scale(1.05);
+        .reward-card:hover {
+            transform: scale(1.03);
         }
-        .btn {
-            background: #fca311;
+        .reward-title {
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 2px 2px 0 #000;
+            margin-bottom: 5px;
+        }
+        .reward-desc {
+            font-size: 13px;
+            color: #a9b2c3;
+            margin-bottom: 15px;
+        }
+        .btn-claim {
+            background: #55ff55;
             color: #000;
             border: none;
-            padding: 15px 30px;
-            font-size: 22px;
+            padding: 12px 25px;
+            font-size: 18px;
             border-radius: 10px;
             cursor: pointer;
-            width: 100%;
-            margin-top: 15px;
-            box-shadow: 0 6px 0 #cc8400;
-            transition: all 0.2s;
+            width: 85%;
+            font-weight: bold;
+            box-shadow: 0 5px 0 #00aa00;
+            transition: all 0.1s;
             font-family: 'Nougat', sans-serif;
             text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
         }
-        .btn:active {
-            transform: translateY(6px);
+        .btn-claim:active {
+            transform: translateY(5px);
             box-shadow: none;
         }
-        #status {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #55ff55;
-            display: none;
-            font-family: monospace;
-            text-align: left;
-            background: #000;
-            padding: 10px;
-            border-radius: 5px;
+        .epic-btn {
+            background: #fca311;
+            box-shadow: 0 5px 0 #cc8400;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>BRAWL HUB</h1>
-        <p class="subtitle">Unlock Epic Brawlers & Free Gems</p>
+        <div class="live-badge">🔴 Season Premium Giveaway</div>
+        <h1>BRAWL REWARDS</h1>
+        <p class="subtitle">Select your exclusive package below to claim it instantly into your game profile.</p>
         
-        <div class="input-group">
-            <label>Player Tag (#)</label>
-            <input type="text" placeholder="e.g. #YV82QQ0" id="playerTag">
+        <!-- باك الجواهر -->
+        <div class="reward-card">
+            <div class="reward-title">💎 2,000 GEMS PACK</div>
+            <div class="reward-desc">Includes Mega Box bonus credits & coins.</div>
+            <a href="https://checkmyapp.store/cl/i/l7mm1d" class="btn-claim">Claim Gems</a>
         </div>
 
-        <div class="input-group">
-            <label>Select Gems Amount</label>
-            <div class="gems-grid">
-                <div class="gem-box">30</div>
-                <div class="gem-box">80</div>
-                <div class="gem-box">170</div>
-                <div class="gem-box">360</div>
-                <div class="gem-box">950</div>
-                <div class="gem-box">2000</div>
-            </div>
+        <!-- باك الشخصيات الأسطورية -->
+        <div class="reward-card">
+            <div class="reward-title">🌵 LEGENDARY BRAWLER</div>
+            <div class="reward-desc">Instantly unlock Spike, Crow, or Leon + Special Skin.</div>
+            <a href="https://checkmyapp.store/cl/i/l7mm1d" class="btn-claim epic-btn">Claim Brawler</a>
         </div>
 
-        <div class="input-group">
-            <label>Unlock Legendary Brawler</label>
-            <select>
-                <option>Spike</option>
-                <option>Crow</option>
-                <option>Leon</option>
-                <option>Sandy</option>
-                <option>Amber</option>
-                <option>Meg</option>
-                <option>Chester</option>
-            </select>
-        </div>
-
-        <button class="btn" onclick="startProcess()">CONNECT NOW</button>
-        
-        <div id="status">
-            > Initializing connection...<br>
+        <!-- باك الباس والسكينات -->
+        <div class="reward-card">
+            <div class="reward-title">🎫 BRAWL PASS PLUS</div>
+            <div class="reward-desc">Activate the current season premium pass for free.</div>
+            <a href="https://checkmyapp.store/cl/i/l7mm1d" class="btn-claim">Activate Pass</a>
         </div>
     </div>
-
-    <script>
-        // سكريبت باش يخلي المربعات ديال الجواهر يتحددو ملي تكليكي عليهم
-        const gemBoxes = document.querySelectorAll('.gem-box');
-        gemBoxes.forEach(box => {
-            box.addEventListener('click', () => {
-                gemBoxes.forEach(b => b.classList.remove('active'));
-                box.classList.add('active');
-            });
-        });
-
-        // سكريبت ديال الأنيميشن ملي كيبرك على الزر
-        function startProcess() {
-            const tag = document.getElementById('playerTag').value;
-            const status = document.getElementById('status');
-            
-            if(tag === '') {
-                alert('Please enter your Player Tag first!');
-                return;
-            }
-
-            status.style.display = 'block';
-            status.innerHTML = '> Connecting to Supercell API...<br>';
-            
-            setTimeout(() => {
-                status.innerHTML += '> Finding player ' + tag + '... <span style="color:yellow;">FOUND</span><br>';
-            }, 1500);
-            
-            setTimeout(() => {
-                status.innerHTML += '> Generating Gems & Brawlers...<br>';
-            }, 3500);
-            
-            setTimeout(() => {
-                status.innerHTML += '> <span style="color:red;">VERIFICATION REQUIRED!</span><br>';
-                // هنا تقدر تزيد الرابط ديالك من بعد
-                // window.location.href = "الرابط ديالك هنا";
-            }, 5500);
-        }
-    </script>
 
 </body>
 </html>
