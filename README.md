@@ -1,1 +1,1 @@
-# stumble-player-hub
+Brawl-Stars-hub
