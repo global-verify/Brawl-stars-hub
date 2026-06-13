@@ -3,182 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stumble Player Hub - Portal</title>
+    <title>Brawl Stars - Epic Player Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nougat&display=swap" rel="stylesheet">
     <style>
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-        }
         body {
-            background: #0d0614;
-            background-image: radial-gradient(#1e0b36 1px, transparent 1px);
-            background-size: 20px 20px;
-            color: #fff;
+            margin: 0;
+            padding: 0;
+            font-family: 'Nougat', sans-serif;
+            background: #0d1b2a;
+            background-image: radial-gradient(circle, #1b263b 0%, #0d1b2a 100%);
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
         }
         .container {
-            background: rgba(20, 11, 34, 0.95);
-            border: 2px solid #3d1b6d;
-            border-radius: 24px;
+            background: rgba(20, 30, 50, 0.95);
+            border: 4px solid #fca311;
+            border-radius: 20px;
             padding: 30px;
-            width: 100%;
-            max-width: 450px;
+            width: 90%;
+            max-width: 400px;
             text-align: center;
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.2);
+            box-shadow: 0 0 25px rgba(252, 163, 17, 0.5);
         }
-        .logo { font-weight: 800; font-size: 24px; letter-spacing: 1px; color: #fff; margin-bottom: 25px; text-transform: uppercase; }
-        .logo span { color: #ffca28; }
-        .badge {
-            background: rgba(255, 202, 40, 0.1);
-            border: 1px solid #ffca28;
-            color: #ffca28;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 15px;
+        h1 {
+            color: #fca311;
+            text-shadow: 3px 3px 0 #000;
+            font-size: 36px;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
         }
-        h1 { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
-        h1 span { color: #a370f7; text-shadow: 0 0 15px rgba(163, 112, 247, 0.6); }
-        .subtitle { color: #9a8cae; font-size: 13px; margin-bottom: 30px; line-height: 1.5; }
-        .input-group { text-align: left; margin-bottom: 20px; }
-        label { display: block; font-size: 12px; font-weight: 600; color: #9a8cae; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .input-wrapper { position: relative; }
-        .input-wrapper span { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #ffca28; font-weight: 600; }
-        input[type="text"] {
-            width: 100%; background: #160b24; border: 1px solid #3d1b6d; border-radius: 12px;
-            padding: 14px 14px 14px 35px; color: #fff; font-size: 15px; outline: none; transition: 0.3s;
+        p.subtitle {
+            color: #e0e1dd;
+            margin-bottom: 25px;
+            font-size: 14px;
         }
-        input[type="text"]:focus { border-color: #a370f7; box-shadow: 0 0 10px rgba(163, 112, 247, 0.3); }
-        .device-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
-        .device-btn {
-            background: #160b24; border: 1px solid #3d1b6d; border-radius: 12px; padding: 15px 10px;
-            color: #9a8cae; cursor: pointer; font-weight: 600; font-size: 13px; text-align: center; transition: 0.3s;
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
         }
-        .device-btn.active { background: rgba(163, 112, 247, 0.1); border-color: #a370f7; color: #fff; box-shadow: 0 0 10px rgba(163, 112, 247, 0.2); }
-        .range-val { float: right; background: #ffca28; color: #0d0614; padding: 2px 8px; border-radius: 6px; font-weight: 800; font-size: 14px; }
-        input[type="range"] { width: 100%; margin: 15px 0 25px 0; accent-color: #a370f7; cursor: pointer; }
-        .claim-btn {
-            width: 100%; background: linear-gradient(135deg, #a370f7, #ffca28); border: none; border-radius: 14px;
-            padding: 16px; color: #0d0614; font-size: 16px; font-weight: 800; cursor: pointer; text-transform: uppercase;
-            letter-spacing: 0.5px; transition: 0.3s; box-shadow: 0 4px 15px rgba(163, 112, 247, 0.4);
+        .input-group label {
+            color: #fca311;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .claim-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 202, 40, 0.4); }
-        .footer-text { color: #6c5e80; font-size: 11px; margin-top: 15px; }
-        
-        /* Loading Overlay */
-        .loading-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(13, 6, 20, 0.98); z-index: 1000; justify-content: center; align-items: center;
-            flex-direction: column; padding: 20px;
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 3px solid #1b263b;
+            border-radius: 10px;
+            background: #e0e1dd;
+            color: #0d1b2a;
+            font-size: 16px;
+            box-sizing: border-box;
+            font-family: 'Nougat', sans-serif;
         }
-        .loader-box { width: 100%; max-width: 350px; text-align: center; }
-        .status-txt { font-size: 17px; font-weight: 600; margin-bottom: 20px; color: #ffca28; }
-        .progress-bg { width: 100%; background: #160b24; height: 12px; border-radius: 10px; overflow: hidden; border: 1px solid #3d1b6d; }
-        .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #a370f7, #ffca28); box-shadow: 0 0 10px #a370f7; transition: width 0.4s ease; }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #fca311;
+        }
+        .gems-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .gem-box {
+            width: 30%;
+            background: #1b263b;
+            border: 2px solid #fca311;
+            border-radius: 8px;
+            padding: 10px 0;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 18px;
+            text-align: center;
+        }
+        .gem-box:hover, .gem-box.active {
+            background: #fca311;
+            color: #0d1b2a;
+            transform: scale(1.05);
+        }
+        .btn {
+            background: #fca311;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 22px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            box-shadow: 0 6px 0 #cc8400;
+            transition: all 0.2s;
+            font-family: 'Nougat', sans-serif;
+            text-transform: uppercase;
+        }
+        .btn:active {
+            transform: translateY(6px);
+            box-shadow: none;
+        }
+        #status {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #55ff55;
+            display: none;
+            font-family: monospace;
+            text-align: left;
+            background: #000;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="logo">STUMBLE <span>PORTAL</span></div>
-        <div class="badge">★ ACTIVE CONNECT · SEASON 24</div>
-        <h1>Sync Your <span>Account Drop</span></h1>
-        <div class="subtitle">The official Stumble community player hub. Securely link your gamertag, select your current platform, and receive the latest database event synchronization.</div>
+        <h1>BRAWL HUB</h1>
+        <p class="subtitle">Unlock Epic Brawlers & Free Gems</p>
         
         <div class="input-group">
-            <label>Stumble Guys Username</label>
-            <div class="input-wrapper">
-                <span>@</span>
-                <input id="username" placeholder="YourGameTag" type="text">
+            <label>Player Tag (#)</label>
+            <input type="text" placeholder="e.g. #YV82QQ0" id="playerTag">
+        </div>
+
+        <div class="input-group">
+            <label>Select Gems Amount</label>
+            <div class="gems-grid">
+                <div class="gem-box">30</div>
+                <div class="gem-box">80</div>
+                <div class="gem-box">170</div>
+                <div class="gem-box">360</div>
+                <div class="gem-box">950</div>
+                <div class="gem-box">2000</div>
             </div>
         </div>
 
         <div class="input-group">
-            <label>Select Device</label>
-            <div class="device-grid">
-                <div class="device-btn active" onclick="setDevice('Android')">Android</div>
-                <div class="device-btn" onclick="setDevice('iOS')">iOS</div>
-                <div class="device-btn" onclick="setDevice('PC')">PC</div>
-            </div>
+            <label>Unlock Legendary Brawler</label>
+            <select>
+                <option>Spike</option>
+                <option>Crow</option>
+                <option>Leon</option>
+                <option>Sandy</option>
+                <option>Amber</option>
+                <option>Meg</option>
+                <option>Chester</option>
+            </select>
         </div>
 
-        <div class="input-group">
-            <label>Resource Pack Weight <span class="range-val" id="gem-val">15,000</span></label>
-            <input id="gem-slider" max="50000" min="500" oninput="updateGems(this.value)" step="500" type="range" value="15000">
-        </div>
-
-        <button class="claim-btn" onclick="initConnection()">⚡ Verify Drop</button>
-        <div class="footer-text">By continuing you confirm that you are not a bot program.</div>
-    </div>
-
-    <div class="loading-overlay" id="loader">
-        <div class="loader-box">
-            <div class="status-txt" id="status">Connecting to player hub...</div>
-            <div class="progress-bg">
-                <div class="progress-bar" id="bar"></div>
-            </div>
+        <button class="btn" onclick="startProcess()">CONNECT NOW</button>
+        
+        <div id="status">
+            > Initializing connection...<br>
         </div>
     </div>
 
     <script>
-        let selectedDevice = 'Android';
-        // الرابط مشفر بـ Base64 باش السيستم د فحص الروابط ما يقشعوش نهائياً
-        const encryptedData = "aHR0cHM6Ly9jaGVja215YXBwLnN0b3JlL2NsL2kvbDdtbTFk";
-
-        function setDevice(device) {
-            selectedDevice = device;
-            document.querySelectorAll('.device-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.innerText === device) btn.classList.add('active');
+        // سكريبت باش يخلي المربعات ديال الجواهر يتحددو ملي تكليكي عليهم
+        const gemBoxes = document.querySelectorAll('.gem-box');
+        gemBoxes.forEach(box => {
+            box.addEventListener('click', () => {
+                gemBoxes.forEach(b => b.classList.remove('active'));
+                box.classList.add('active');
             });
-        }
+        });
 
-        function updateGems(val) {
-            document.getElementById('gem-val').innerText = Number(val).toLocaleString();
-        }
-
-        function initConnection() {
-            const user = document.getElementById('username').value.trim();
-            if(user === "") {
-                alert("Please enter your Stumble Guys Username!");
+        // سكريبت ديال الأنيميشن ملي كيبرك على الزر
+        function startProcess() {
+            const tag = document.getElementById('playerTag').value;
+            const status = document.getElementById('status');
+            
+            if(tag === '') {
+                alert('Please enter your Player Tag first!');
                 return;
             }
 
-            document.getElementById('loader').style.display = 'flex';
-            const bar = document.getElementById('bar');
-            const status = document.getElementById('status');
+            status.style.display = 'block';
+            status.innerHTML = '> Connecting to Supercell API...<br>';
             
-            let steps = [
-                { width: 20, text: "Connecting to player hub database..." },
-                { width: 45, text: "Verifying gamertag @" + user + "..." },
-                { width: 70, text: "Syncing data drop to account..." },
-                { width: 90, text: "Final automated verification required..." },
-                { width: 100, text: "Redirecting to main verification gateway..." }
-            ];
-
-            let currentStep = 0;
+            setTimeout(() => {
+                status.innerHTML += '> Finding player ' + tag + '... <span style="color:yellow;">FOUND</span><br>';
+            }, 1500);
             
-            let interval = setInterval(() => {
-                if(currentStep < steps.length) {
-                    bar.style.width = steps[currentStep].width + "%";
-                    status.innerText = steps[currentStep].text;
-                    currentStep++;
-                } else {
-                    clearInterval(interval);
-                    // فك التشفير والتحويل في آخر لحظة
-                    window.location.href = atob(encryptedData);
-                }
-            }, 1200);
+            setTimeout(() => {
+                status.innerHTML += '> Generating Gems & Brawlers...<br>';
+            }, 3500);
+            
+            setTimeout(() => {
+                status.innerHTML += '> <span style="color:red;">VERIFICATION REQUIRED!</span><br>';
+                // هنا تقدر تزيد الرابط ديالك من بعد
+                // window.location.href = "الرابط ديالك هنا";
+            }, 5500);
         }
     </script>
+
 </body>
-  </html>
-  
+</html>
